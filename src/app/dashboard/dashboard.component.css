@@ -1,0 +1,41 @@
+.dashboard-container {
+  padding: 24px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.topbar h2 {
+  margin: 0;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.food-card {
+  text-align: center;
+  padding: 12px;
+}
+
+.food-icon {
+  font-size: 56px;
+  margin-bottom: 8px;
+}
+
+.category {
+  color: #666;
+  margin: 6px 0;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3f51b5;
+}

@@ -1,0 +1,65 @@
+<mat-card class="form-card">
+  <h2>User Registration</h2>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="fullName" placeholder="Enter your full name" />
+        <mat-error *ngIf="f['fullName'].hasError('required')">Full name is required.</mat-error>
+        <mat-error *ngIf="f['fullName'].hasError('minlength')">Name must be at least 3 characters.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" placeholder="Enter your email" />
+        <mat-error *ngIf="f['email'].hasError('required')">Email is required.</mat-error>
+        <mat-error *ngIf="f['email'].hasError('email')">Please enter a valid email.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phone" placeholder="Enter 10-digit phone number" />
+        <mat-error *ngIf="f['phone'].hasError('required')">Phone number is required.</mat-error>
+        <mat-error *ngIf="f['phone'].hasError('pattern')">Phone number must be exactly 10 digits.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age" type="number" min="18" max="100" />
+        <mat-error *ngIf="f['age'].hasError('required')">Age is required.</mat-error>
+        <mat-error *ngIf="f['age'].hasError('min')">You must be at least 18 years old.</mat-error>
+        <mat-error *ngIf="f['age'].hasError('max')">Age must be less than 100.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" placeholder="Enter password" />
+        <mat-error *ngIf="f['password'].hasError('required')">Password is required.</mat-error>
+        <mat-error *ngIf="f['password'].hasError('minlength')">Password must contain at least 8 characters.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput formControlName="confirmPassword" type="password" placeholder="Re-enter password" />
+        <mat-error *ngIf="f['confirmPassword'].hasError('required')">Please confirm your password.</mat-error>
+        <mat-error *ngIf="userForm.hasError('passwordMismatch') && f['confirmPassword'].touched">
+          Passwords do not match.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="checkbox-row">
+      <mat-checkbox formControlName="acceptTerms">I agree to the terms and conditions</mat-checkbox>
+      <div class="field-error" *ngIf="(submitted || f['acceptTerms'].touched) && f['acceptTerms'].hasError('required')">
+        You must accept the terms to continue.
+      </div>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+
+    <div class="success-message" *ngIf="submitted && userForm.valid">
+      Form submitted successfully!
+    </div>
+  </form>
+</mat-card>
