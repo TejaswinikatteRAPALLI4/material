@@ -21,9 +21,20 @@
         </div>
       </div>
 
+      <div class="payment-box">
+        <h3>Payment Options</h3>
+        <mat-radio-group [(ngModel)]="selectedPayment">
+          <mat-radio-button *ngFor="let option of paymentOptions" [value]="option">
+            {{ option }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+
       <div class="total-box">
         <strong>Total: ₹{{ total }}</strong>
       </div>
+
+      <button mat-raised-button color="primary" (click)="checkout()">Pay Now</button>
     </div>
 
     <ng-template #emptyCart>
