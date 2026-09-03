@@ -17,8 +17,6 @@ interface CartItem {
 })
 export class CartComponent implements OnInit {
   cartItems: CartItem[] = [];
-  selectedPayment: string = 'Cash on Delivery';
-  paymentOptions: string[] = ['Cash on Delivery', 'UPI', 'Credit Card', 'Debit Card'];
 
   constructor(private router: Router) {}
 
@@ -42,11 +40,6 @@ export class CartComponent implements OnInit {
       this.cartItems = this.cartItems.filter((cartItem) => cartItem.id !== item.id);
     }
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
-  }
-
-  checkout(): void {
-    console.log('Checkout with:', this.selectedPayment);
-    alert('Order placed successfully!');
   }
 
   backToDashboard(): void {
