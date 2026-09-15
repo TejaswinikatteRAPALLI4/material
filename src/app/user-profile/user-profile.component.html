@@ -1,0 +1,25 @@
+<form #profileForm="ngForm" (ngSubmit)="submitForm(profileForm)">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>First Name</mat-label>
+    <input matInput name="firstName" [(ngModel)]="profile.firstName" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Last Name</mat-label>
+    <input matInput name="lastName" [(ngModel)]="profile.lastName" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" name="email" [(ngModel)]="profile.email" required />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Save Profile</button>
+</form>
+
+<div class="profile-values">
+  <h3>Profile Values</h3>
+  <p><strong>First Name:</strong> {{ profile.firstName }}</p>
+  <p><strong>Last Name:</strong> {{ profile.lastName }}</p>
+  <p><strong>Email:</strong> {{ profile.email }}</p>
+</div>

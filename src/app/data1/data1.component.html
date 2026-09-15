@@ -1,0 +1,47 @@
+<!-- <p>{{ data }}</p>
+<p>Count: {{ count() }}</p>
+
+<button type="button" (click)="changeCount(-1)">-</button>
+<button type="button" (click)="changeCount(1)">+</button> -->
+<div class="header">
+<div class="heading">
+    <h1>Form Details </h1>
+</div>
+<div class="formData">
+<form [formGroup]="formData">
+    <div>
+        <label>Name:</label>
+        <input formControlName="name" placeholder="name" type="text" />
+        <div
+  class="error"
+  *ngIf="formData.get('name')?.touched && formData.get('name')?.hasError('required')"
+>
+  Name is required
+</div>
+
+<div
+  class="error"
+  *ngIf="formData.get('name')?.touched && formData.get('name')?.hasError('minlength')"
+>
+  Name must be at least 3 characters
+</div>
+
+    </div>
+    <div>
+        <label>Email:</label>
+        <input formControlName="email" placeholder="email" type="text" />
+        <div class="error" *ngIf="formData.get('email')?.touched && formData.get('email')?.invalid">
+            Email is required
+        </div>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input formControlName="password" placeholder="password" type="password" />
+    </div>
+     <div  class="error"*ngIf="formData.get('password')?.touched && formData.get('password')?.invalid">
+            password is required
+        </div>
+    <button type="button" (click)="submitForm()" [disabled]="formData.invalid">Submit</button>
+</form>
+</div>
+</div>

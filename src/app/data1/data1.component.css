@@ -1,0 +1,34 @@
+.header {
+    width: fit-content;
+    padding: 30px 40px;
+    background-color: #b7c2c6;
+    margin: 40px auto;
+    border-radius: 8px;
+}
+
+.heading h1 {
+    margin: 0 0 20px;
+    color: red;
+    text-align: center;
+}
+
+.formData {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.formData form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formData form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.error {
+    color: red;
+    margin-top: 5px;
+}
