@@ -1,0 +1,35 @@
+<div class="cart-container">
+  <mat-card class="cart-card">
+    <h2>Your Cart</h2>
+
+    <div *ngIf="cartItems.length; else emptyCart">
+      <div class="cart-item" *ngFor="let item of cartItems">
+        <div class="food-icon">{{ item.image }}</div>
+        <div class="details">
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.category }}</p>
+          <p class="price">₹{{ item.price }}</p>
+        </div>
+        <div class="qty-controls">
+          <button mat-icon-button color="primary" (click)="decrease(item)">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <span>{{ item.quantity }}</span>
+          <button mat-icon-button color="primary" (click)="increase(item)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="total-box">
+        <strong>Total: ₹{{ total }}</strong>
+      </div>
+    </div>
+
+    <ng-template #emptyCart>
+      <p class="empty-text">No item selected.</p>
+    </ng-template>
+
+    <button mat-raised-button color="primary" (click)="backToDashboard()">Back to Dashboard</button>
+  </mat-card>
+</div>
