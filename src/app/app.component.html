@@ -1,4 +1,4 @@
-<h1>App component</h1>
+<!-- <h1>App component</h1>
 <input type ="text"> 
  <div>
     <ul class="listdata">
@@ -42,20 +42,18 @@
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <!-- ID Column -->
+  
      
     <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> ID </th>
         <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
 
-    <!-- Name Column -->
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
 
-    <!-- Email Column -->
     <ng-container matColumnDef="email">
         <th mat-header-cell *matHeaderCellDef> Email </th>
         <td mat-cell *matCellDef="let element"> {{element.email}} </td>
@@ -69,10 +67,12 @@
             </button>
         </td>
     </ng-container>
-    <!-- Header Row -->
+ 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 
-    <!-- Data Row -->
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-</table>
+</table> -->
+
+<router-outlet></router-outlet>
+<!-- <app-dashboard></app-dashboard> -->

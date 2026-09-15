@@ -14,9 +14,9 @@ export class Data1Component {
   count = signal(0);
   ngOnInit() {
     this.formData = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+      name: ['', [Validators.required,Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['',[Validators.required],Validators.minLength(6)],
     })
   }
   changeCount(amount: number): void {
